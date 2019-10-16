@@ -1,4 +1,6 @@
 /**
+ * https://leetcode.com/problems/subsets/
+ * 
  * @param {number[]} nums
  * @return {number[][]}
  */
@@ -14,8 +16,3 @@ var subsets = function(nums) {
         ...listOfResult.map(result => [...result, first])
     ]
 };
-
-
-const ret = subsets([1,2,3])
-
-console.log(ret)
