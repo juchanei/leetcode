@@ -6,10 +6,6 @@
  */
 
 var searchMatrix = function(matrix, target) {
-    const height = matrix.length
-    if (0 === height) return false
-    const width = matrix[0].length
-    if (0 === width) return false
 
     const findIndex = (rowIndex, boundary, target) => {
         let i = Math.ceil(boundary / 2)
@@ -20,6 +16,11 @@ var searchMatrix = function(matrix, target) {
         while (left < right) {
             if (target === row[i])
                 return i
+            else if (1 === (right - left)) {
+                if (row[right] <= target)
+                    return right
+                return left
+            }
 
             if (row[i] < target) {
                 left = i
@@ -28,17 +29,14 @@ var searchMatrix = function(matrix, target) {
                 right = i
             }
             i = Math.ceil((right - left)/2) + left
-
-            if (1 === (right - left)) {
-                if (target === row[right])
-                    return right
-                else if (row[right] < target)
-                    return right
-                return left
-            }
         }
         return i
     }
+
+    const height = matrix.length
+    if (0 === height) return false
+    const width = matrix[0].length
+    if (0 === width) return false
 
     let boundary = width - 1
     for (let i = 0; i < height; i++) {
