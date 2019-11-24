@@ -7,7 +7,7 @@
 
 var searchMatrix = function(matrix, target) {
 
-    const findIndex = (rowIndex, boundary, target) => {
+    const findBoundary = (rowIndex, boundary, target) => {
         let i = Math.ceil(boundary / 2)
         let left = 0
         let right = boundary
@@ -22,12 +22,8 @@ var searchMatrix = function(matrix, target) {
                 return left
             }
 
-            if (row[i] < target) {
-                left = i
-            }
-            else if (target < row[i]) {
-                right = i
-            }
+            if (row[i] < target) left = i
+            else if (target < row[i]) right = i
             i = Math.ceil((right - left)/2) + left
         }
         return i
@@ -41,9 +37,10 @@ var searchMatrix = function(matrix, target) {
     let boundary = width - 1
     for (let i = 0; i < height; i++) {
         const row = matrix[i]
-        boundary = findIndex(i, boundary, target)
+        boundary = findBoundary(i, boundary, target)
         if (target === matrix[i][boundary]) 
             return true
     }
+    
     return false
 };
