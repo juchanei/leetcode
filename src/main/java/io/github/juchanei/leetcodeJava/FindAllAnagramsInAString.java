@@ -10,11 +10,19 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class FindAllAnagramsInAString {
-    private static Map<String, Integer> toMap(String str) {
-        Map<String, Integer> map = new HashMap<>();
-        Stream.of(str.split(""))
-            .forEach(key -> map.put(key, map.getOrDefault(key, 0) + 1));
-        return map;
+    public static List<Integer> findAnagrams(String s, String p) {
+        if (s.length() == 0) return Collections.EMPTY_LIST;
+        if (s.length() < p.length()) return Collections.EMPTY_LIST;
+
+        List<Boolean> results = IntStream.range(0, s.length() - p.length() + 1)
+            .boxed()
+            .map(createAnagramChecker(s, p))
+            .collect(Collectors.toList());
+
+        return IntStream.range(0, results.size())
+            .boxed()
+            .filter(results::get)
+            .collect(Collectors.toList());
     }
 
     private static Function<Integer, Boolean> createAnagramChecker(String s, String p) {
@@ -43,19 +51,11 @@ public class FindAllAnagramsInAString {
         };
     }
 
-    public static List<Integer> findAnagrams(String s, String p) {
-        if (s.length() == 0) return Collections.EMPTY_LIST;
-        if (s.length() < p.length()) return Collections.EMPTY_LIST;
-
-        List<Boolean> results = IntStream.range(0, s.length() - p.length() + 1)
-            .mapToObj(Integer::valueOf)
-            .map(createAnagramChecker(s, p))
-            .collect(Collectors.toList());
-
-        return IntStream.range(0, results.size())
-            .filter(i -> results.get(i))
-            .mapToObj(Integer::valueOf)
-            .collect(Collectors.toList());
+    private static Map<String, Integer> toMap(String str) {
+        Map<String, Integer> map = new HashMap<>();
+        Stream.of(str.split(""))
+            .forEach(key -> map.put(key, map.getOrDefault(key, 0) + 1));
+        return map;
     }
 
     public static class UnitTest {
