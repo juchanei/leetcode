@@ -3,9 +3,9 @@ package io.github.juchanei.leetcodeJava;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by juchanei on 2020/11/14.
@@ -31,20 +31,25 @@ public class BinaryTreeLevelOrderTraversal {
 
     private static final List<List<Integer>> ret = new LinkedList<>();
 
-    private static List<List<Integer>> recursive(TreeNode node, int levelOrder) {
-        if (ret.size() <= levelOrder)
-            ret.add(new LinkedList<>());
+    private static List<List<Integer>> recursive(List<TreeNode> levelNodes) {
+        if (levelNodes.size() == 0) return ret;
 
-        ret.get(levelOrder).add(node.val);
+        List<Integer> levelValues = levelNodes.stream()
+            .map(node -> node.val)
+            .collect(Collectors.toList());
 
-        if (node.left != null) recursive(node.left, levelOrder + 1);
-        if (node.right != null) recursive(node.right, levelOrder + 1);
+        ret.add(levelValues);
 
-        return ret;
+        List<TreeNode> nextLevelNodes = levelNodes.stream()
+            .flatMap(node -> Stream.of(node.left, node.right))
+            .filter(Objects::nonNull)
+            .collect(Collectors.toList());
+
+        return recursive(nextLevelNodes);
     }
 
     public static List<List<Integer>> levelOrder(TreeNode root) {
-        return root == null ? ret : recursive(root, 0);
+        return root == null ? ret : recursive(Collections.singletonList(root));
     }
 
     public static class UnitTest {
@@ -66,6 +71,11 @@ public class BinaryTreeLevelOrderTraversal {
                 Arrays.asList(15, 7)
             );
             Assert.assertEquals(expected, levelOrder(root));
+        }
+
+        @Test
+        public void test2() {
+            Stream.of(1, 2, 3, 4).forEach(System.out::println);
         }
     }
 }
