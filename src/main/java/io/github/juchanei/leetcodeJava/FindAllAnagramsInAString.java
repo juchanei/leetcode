@@ -28,7 +28,7 @@ public class FindAllAnagramsInAString {
     private static Function<Integer, Boolean> createAnagramChecker(String s, String p) {
         Map<Integer, Boolean> memo = new HashMap<>();
 
-        Map<String, Integer> mapP = toMap(p);
+        Map<String, Integer> mapP = countAlphabets(p);
 
         return new Function<Integer, Boolean>() {
             private Boolean memoAndGet(int index, boolean res) {
@@ -46,12 +46,12 @@ public class FindAllAnagramsInAString {
                     return memoAndGet(fromIndex, apply(fromIndex - 1));
 
                 String sub = s.substring(fromIndex, toIndex);
-                return memoAndGet(fromIndex, mapP.equals(toMap(sub)));
+                return memoAndGet(fromIndex, mapP.equals(countAlphabets(sub)));
             }
         };
     }
 
-    private static Map<String, Integer> toMap(String str) {
+    private static Map<String, Integer> countAlphabets(String str) {
         Map<String, Integer> map = new HashMap<>();
         Stream.of(str.split(""))
             .forEach(key -> map.put(key, map.getOrDefault(key, 0) + 1));
