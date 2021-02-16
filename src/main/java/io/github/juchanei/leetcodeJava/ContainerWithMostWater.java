@@ -14,17 +14,14 @@ public class ContainerWithMostWater {
         int right = height.length - 1;
         int max = calcWater(left, right);
 
-        while (left < right) {
-            if (height[left] < height[right]) {
+        while (true) {
+            if (height[left] < height[right])
                 left = findNextLeftPosition(left);
-                if (right <= left) break;
-                max = Math.max(max, calcWater(left, right));
-            }
-            else {
+            else
                 right = findNextRightPosition(right);
-                if (right <= left) break;
-                max = Math.max(max, calcWater(left, right));
-            }
+
+            if (right <= left) break;
+            max = Math.max(max, calcWater(left, right));
         }
 
         return max;
@@ -36,13 +33,13 @@ public class ContainerWithMostWater {
 
     private int findNextLeftPosition(int left) {
         int prevHeight = height[left];
-        while (height[left] <= prevHeight && left < height.length - 1) left++;
+        while (left < height.length - 1 && height[left] <= prevHeight) left++;
         return left;
     }
 
     private int findNextRightPosition(int right) {
         int prevHeight = height[right];
-        while (height[right] <= prevHeight && 0 < right) right--;
+        while (0 < right && height[right] <= prevHeight) right--;
         return right;
     }
 
