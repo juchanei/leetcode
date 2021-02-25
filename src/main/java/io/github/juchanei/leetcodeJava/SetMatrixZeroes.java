@@ -13,8 +13,16 @@ public class SetMatrixZeroes {
     }
 
     private void setZeroes(int x, int y, boolean isZero) {
-        if (x + 1 < matrix[y].length) setZeroes(x + 1, y, matrix[y][x + 1] == 0);
-        else if (y + 1 < matrix.length) setZeroes(0, y + 1, matrix[y + 1][0] == 0);
+        boolean found = false;
+        for (int i = y; i < matrix.length && !found; i++) {
+            for (int j = i == y ? x + 1 : 0; j < matrix[i].length && !found; j++) {
+                if (matrix[i][j] == 0) {
+                    setZeroes(j, i, true);
+
+                    found = true;
+                }
+            }
+        }
 
         if (!isZero) return;
 
