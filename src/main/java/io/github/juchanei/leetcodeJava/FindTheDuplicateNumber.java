@@ -4,24 +4,33 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class FindTheDuplicateNumber {
-    public int findDuplicate(int[] nums) {
-        // Floyd cycle detection algorithm.
-        int tortoise = nums[0];
-        int hare = nums[0];
+    private int[] nums;
 
+    public int findDuplicate(int[] nums) {
+        this.nums = nums;
+
+        return floyd(nums[0], nums[0]);
+    }
+
+    // Floyd cycle detection algorithm.
+    private int floyd(int tortoise, int hare) {
         do {
-            tortoise = nums[tortoise];
-            hare = nums[nums[hare]];
+            tortoise = next(tortoise);
+            hare = next(next(hare));
         } while (tortoise != hare);
 
         tortoise = nums[0];
 
         while (tortoise != hare) {
-            tortoise = nums[tortoise];
-            hare = nums[hare];
+            tortoise = next(tortoise);
+            hare = next(hare);
         }
 
         return tortoise;
+    }
+
+    private int next(int current) {
+        return nums[current];
     }
 
     public static class UnitTest {
