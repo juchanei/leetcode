@@ -1,7 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UniquePaths {
     private int m;
@@ -35,7 +36,7 @@ public class UniquePaths {
             int expected = 28;
             int actual = up.uniquePaths(3, 7);
 
-            Assert.assertEquals(expected, actual);
+            assertEquals(expected, actual);
         }
 
         @Test
@@ -43,7 +44,7 @@ public class UniquePaths {
             int expected = 3;
             int actual = up.uniquePaths(3, 2);
 
-            Assert.assertEquals(expected, actual);
+            assertEquals(expected, actual);
         }
 
         @Test
@@ -51,7 +52,7 @@ public class UniquePaths {
             int expected = 28;
             int actual = up.uniquePaths(7, 3);
 
-            Assert.assertEquals(expected, actual);
+            assertEquals(expected, actual);
         }
 
         @Test
@@ -59,7 +60,7 @@ public class UniquePaths {
             int expected = 6;
             int actual = up.uniquePaths(3, 3);
 
-            Assert.assertEquals(expected, actual);
+            assertEquals(expected, actual);
         }
     }
 

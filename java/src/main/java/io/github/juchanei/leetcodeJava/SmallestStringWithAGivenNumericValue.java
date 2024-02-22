@@ -1,7 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;;
 
 public class SmallestStringWithAGivenNumericValue {
 
@@ -26,37 +27,37 @@ public class SmallestStringWithAGivenNumericValue {
         @Test
         public void givenTest1() {
             String actual = SmallestStringWithAGivenNumericValue.getSmallestString(3, 27);
-            Assert.assertEquals("aay", actual);
+            assertEquals("aay", actual);
         }
 
         @Test
         public void givenTest2() {
             String actual = SmallestStringWithAGivenNumericValue.getSmallestString(5, 73);
-            Assert.assertEquals("aaszz", actual);
+            assertEquals("aaszz", actual);
         }
 
         @Test
         public void startWithoutA() {
             String actual = SmallestStringWithAGivenNumericValue.getSmallestString(1, 2);
-            Assert.assertEquals("b", actual);
+            assertEquals("b", actual);
         }
 
         @Test
         public void edge1() {
             String actual = SmallestStringWithAGivenNumericValue.getSmallestString(100000, 100000);
-            Assert.assertEquals("a".repeat(100000), actual);
+            assertEquals("a".repeat(100000), actual);
         }
 
         @Test
         public void edge2() {
             String actual = SmallestStringWithAGivenNumericValue.getSmallestString(100000, 2600000);
-            Assert.assertEquals("z".repeat(100000), actual);
+            assertEquals("z".repeat(100000), actual);
         }
 
         @Test
         public void test1() {
             String actual = SmallestStringWithAGivenNumericValue.getSmallestString(93520, 92185);
-            Assert.assertEquals("z".repeat(10000), actual);
+            assertEquals("z".repeat(10000), actual);
         }
     }
 }

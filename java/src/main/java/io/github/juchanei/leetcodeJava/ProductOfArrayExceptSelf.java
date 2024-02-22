@@ -1,7 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class ProductOfArrayExceptSelf {
     public int[] productExceptSelf(int[] nums) {
@@ -32,7 +33,7 @@ public class ProductOfArrayExceptSelf {
         public void example1() {
             int[] input = { 1, 2, 3, 4 };
             int[] output = { 24, 12, 8, 6 };
-            Assert.assertArrayEquals(output, poes.productExceptSelf(input));
+            assertArrayEquals(output, poes.productExceptSelf(input));
         }
     }
 }

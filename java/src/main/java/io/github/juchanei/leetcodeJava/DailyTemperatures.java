@@ -1,9 +1,10 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class DailyTemperatures {
     private int[] temps;
@@ -43,14 +44,14 @@ public class DailyTemperatures {
         public void example1() {
             int[] input = {73, 74, 75, 71, 69, 72, 76, 73};
             int[] expected = {1, 1, 4, 2, 1, 1, 0, 0};
-            Assert.assertArrayEquals(expected, dt.dailyTemperatures(input));
+            assertArrayEquals(expected, dt.dailyTemperatures(input));
         }
 
         @Test
         public void example2() {
             int[] input = {99, 30, 30, 30, 30, 100};
             int[] expected = {5, 4, 3, 2, 1, 0};
-            Assert.assertArrayEquals(expected, dt.dailyTemperatures(input));
+            assertArrayEquals(expected, dt.dailyTemperatures(input));
         }
     }
 }

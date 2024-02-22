@@ -1,7 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;;
 
 public class SumOfTwoIntegers {
     public int getSum(int a, int b) {
@@ -37,7 +38,7 @@ public class SumOfTwoIntegers {
             int a = 1;
             int b = 2;
             int c = 3;
-            Assert.assertEquals(c, si.getSum(a, b));
+            assertEquals(c, si.getSum(a, b));
         }
 
         @Test
@@ -45,7 +46,7 @@ public class SumOfTwoIntegers {
             int a = 2;
             int b = 3;
             int c = 5;
-            Assert.assertEquals(c, si.getSum(a, b));
+            assertEquals(c, si.getSum(a, b));
         }
 
         @Test
@@ -53,7 +54,7 @@ public class SumOfTwoIntegers {
             int a = -12;
             int b = 3;
             int c = -9;
-            Assert.assertEquals(c, si.getSum(a, b));
+            assertEquals(c, si.getSum(a, b));
         }
 
         @Test
@@ -61,7 +62,7 @@ public class SumOfTwoIntegers {
             int a = 20;
             int b = 30;
             int c = 50;
-            Assert.assertEquals(c, si.getSum(a, b));
+            assertEquals(c, si.getSum(a, b));
         }
     }
 }

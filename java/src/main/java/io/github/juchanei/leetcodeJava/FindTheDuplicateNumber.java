@@ -1,7 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FindTheDuplicateNumber {
     private int[] nums;
@@ -40,28 +41,28 @@ public class FindTheDuplicateNumber {
         public void example1() {
             int[] input = { 1,3,4,2,2 };
             int output = 2;
-            Assert.assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, dn.findDuplicate(input));
         }
 
         @Test
         public void example2() {
             int[] input = { 3,1,3,4,2 };
             int output = 3;
-            Assert.assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, dn.findDuplicate(input));
         }
 
         @Test
         public void example3() {
             int[] input = { 1,1 };
             int output = 1;
-            Assert.assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, dn.findDuplicate(input));
         }
 
         @Test
         public void example4() {
             int[] input = { 1,1,2 };
             int output = 1;
-            Assert.assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, dn.findDuplicate(input));
         }
 
         @Test
@@ -71,14 +72,14 @@ public class FindTheDuplicateNumber {
             for (int i = 0; i < 30000; i++) input[i] = i + 1;
             input[30000] = output;
 
-            Assert.assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, dn.findDuplicate(input));
         }
 
         @Test
         public void test2() {
             int[] input = { 2,2,2 };
             int output = 2;
-            Assert.assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, dn.findDuplicate(input));
         }
     }
 }

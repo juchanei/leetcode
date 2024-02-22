@@ -1,11 +1,12 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by juchanei on 2020/11/14.
@@ -70,7 +71,7 @@ public class BinaryTreeLevelOrderTraversal {
                 Arrays.asList(9, 20),
                 Arrays.asList(15, 7)
             );
-            Assert.assertEquals(expected, levelOrder(root));
+            assertEquals(expected, levelOrder(root));
         }
 
         @Test

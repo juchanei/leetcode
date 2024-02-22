@@ -1,7 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IncreasingTripletSubsequence {
     private int[] nums;
@@ -49,7 +50,7 @@ public class IncreasingTripletSubsequence {
             int[] input = { 1,2,3,4,5 };
             boolean output = true;
 
-            Assert.assertEquals(output, its.increasingTriplet(input));
+            assertEquals(output, its.increasingTriplet(input));
         }
 
         @Test
@@ -57,7 +58,7 @@ public class IncreasingTripletSubsequence {
             int[] input = { 5,4,3,2,1 };
             boolean output = false;
 
-            Assert.assertEquals(output, its.increasingTriplet(input));
+            assertEquals(output, its.increasingTriplet(input));
         }
 
         @Test
@@ -65,7 +66,7 @@ public class IncreasingTripletSubsequence {
             int[] input = { 2,1,5,0,4,6 };
             boolean output = true;
 
-            Assert.assertEquals(output, its.increasingTriplet(input));
+            assertEquals(output, its.increasingTriplet(input));
         }
 
         @Test
@@ -73,7 +74,7 @@ public class IncreasingTripletSubsequence {
             int[] input = { 20,100,10,12,5,13 };
             boolean output = true;
 
-            Assert.assertEquals(output, its.increasingTriplet(input));
+            assertEquals(output, its.increasingTriplet(input));
         }
 
         @Test
@@ -81,7 +82,7 @@ public class IncreasingTripletSubsequence {
             int[] input = { 1,5,0,4,1,3 };
             boolean output = true;
 
-            Assert.assertEquals(output, its.increasingTriplet(input));
+            assertEquals(output, its.increasingTriplet(input));
         }
     }
 }

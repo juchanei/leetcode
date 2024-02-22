@@ -1,13 +1,14 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FindAllAnagramsInAString {
     public static List<Integer> findAnagrams(String s, String p) {
@@ -64,7 +65,7 @@ public class FindAllAnagramsInAString {
             List<Integer> expected = Arrays.asList();
             List<Integer> actual = findAnagrams("", "abc");
 
-            Assert.assertTrue(expected.equals(actual));
+            assertTrue(expected.equals(actual));
         }
 
         @Test
@@ -72,7 +73,7 @@ public class FindAllAnagramsInAString {
             List<Integer> expected = Arrays.asList(0, 6);
             List<Integer> actual = findAnagrams("cbaebabacd", "abc");
 
-            Assert.assertTrue(expected.equals(actual));
+            assertTrue(expected.equals(actual));
         }
 
         @Test
@@ -80,7 +81,7 @@ public class FindAllAnagramsInAString {
             List<Integer> expected = Arrays.asList(0, 2, 3, 4, 8);
             List<Integer> actual = findAnagrams("ababaabbabab", "aab");
 
-            Assert.assertTrue(expected.equals(actual));
+            assertTrue(expected.equals(actual));
         }
 
         @Test
@@ -88,7 +89,7 @@ public class FindAllAnagramsInAString {
             List<Integer> expected = Arrays.asList(0, 1, 2, 3, 4);
             List<Integer> actual = findAnagrams("aaaaaaa", "aaa");
 
-            Assert.assertTrue(expected.equals(actual));
+            assertTrue(expected.equals(actual));
         }
     }
 }

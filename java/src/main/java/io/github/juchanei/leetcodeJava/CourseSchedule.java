@@ -1,11 +1,12 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.stream.IntStream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CourseSchedule {
     private int[][] prerequisites;
@@ -42,14 +43,14 @@ public class CourseSchedule {
         public void example1() {
             int nc = 2;
             int[][] pre = {{1, 0}};
-            Assert.assertEquals(cs.canFinish(nc, pre), true);
+            assertEquals(cs.canFinish(nc, pre), true);
         }
 
         @Test
         public void example2() {
             int nc = 2;
             int[][] pre = {{1, 0}, {0, 1}};
-            Assert.assertEquals(cs.canFinish(nc, pre), false);
+            assertEquals(cs.canFinish(nc, pre), false);
         }
     }
 }

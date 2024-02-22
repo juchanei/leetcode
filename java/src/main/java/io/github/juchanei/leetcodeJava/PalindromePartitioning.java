@@ -1,13 +1,15 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PalindromePartitioning {
     public List<List<String>> partition(String s) {
@@ -56,7 +58,7 @@ public class PalindromePartitioning {
                 Arrays.asList("aa","b")
             );
 
-            Assert.assertArrayEquals(
+            assertArrayEquals(
                 output.toArray(),
                 pp.partition(input).toArray()
             );
@@ -69,7 +71,7 @@ public class PalindromePartitioning {
                 Arrays.asList("a")
             );
 
-            Assert.assertArrayEquals(
+            assertArrayEquals(
                 output.toArray(),
                 pp.partition(input).toArray()
             );
@@ -77,11 +79,11 @@ public class PalindromePartitioning {
 
         @Test
         public void palindromeTest() {
-            Assert.assertEquals(true, pp.isPalindrome("heleh"));
-            Assert.assertEquals(true, pp.isPalindrome("h"));
-            Assert.assertEquals(true, pp.isPalindrome("hh"));
-            Assert.assertEquals(false, pp.isPalindrome("ddheleh"));
-            Assert.assertEquals(false, pp.isPalindrome(""));
+            assertEquals(true, pp.isPalindrome("heleh"));
+            assertEquals(true, pp.isPalindrome("h"));
+            assertEquals(true, pp.isPalindrome("hh"));
+            assertEquals(false, pp.isPalindrome("ddheleh"));
+            assertEquals(false, pp.isPalindrome(""));
         }
 
         @Test
@@ -92,7 +94,7 @@ public class PalindromePartitioning {
                 Arrays.asList("bb")
             );
 
-            Assert.assertArrayEquals(
+            assertArrayEquals(
                 output.toArray(),
                 pp.partition(input).toArray()
             );

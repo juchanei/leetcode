@@ -1,7 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+;import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class SortColors {
     public void sortColors(int[] nums) {
@@ -38,7 +39,7 @@ public class SortColors {
             int[] output = { 0,0,1,1,2,2 };
 
             sc.sortColors(input);
-            Assert.assertArrayEquals(output, input);
+            assertArrayEquals(output, input);
         }
 
         @Test
@@ -47,7 +48,7 @@ public class SortColors {
             int[] output = { 0,1,2 };
 
             sc.sortColors(input);
-            Assert.assertArrayEquals(output, input);
+            assertArrayEquals(output, input);
         }
 
         @Test
@@ -56,7 +57,7 @@ public class SortColors {
             int[] output = { 0 };
 
             sc.sortColors(input);
-            Assert.assertArrayEquals(output, input);
+            assertArrayEquals(output, input);
         }
 
         @Test
@@ -65,7 +66,7 @@ public class SortColors {
             int[] output = { 1 };
 
             sc.sortColors(input);
-            Assert.assertArrayEquals(output, input);
+            assertArrayEquals(output, input);
         }
     }
 }

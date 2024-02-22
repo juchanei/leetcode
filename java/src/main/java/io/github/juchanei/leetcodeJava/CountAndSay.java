@@ -1,7 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CountAndSay {
     public String countAndSay(int n) {
@@ -43,7 +44,7 @@ public class CountAndSay {
             int input = 1;
             String output = "1";
 
-            Assert.assertEquals(output, cs.countAndSay(input));
+            assertEquals(output, cs.countAndSay(input));
         }
 
         @Test
@@ -51,7 +52,7 @@ public class CountAndSay {
             int input = 4;
             String output = "1211";
 
-            Assert.assertEquals(output, cs.countAndSay(input));
+            assertEquals(output, cs.countAndSay(input));
         }
     }
 }

@@ -1,7 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class RotateImage {
     public void rotate(int[][] matrix) {
@@ -44,7 +45,7 @@ public class RotateImage {
             };
             ri.rotate(matrix);
 
-            Assert.assertArrayEquals(expected, matrix);
+            assertArrayEquals(expected, matrix);
         }
 
         @Test
@@ -63,7 +64,7 @@ public class RotateImage {
             };
             ri.rotate(matrix);
 
-            Assert.assertArrayEquals(expected, matrix);
+            assertArrayEquals(expected, matrix);
         }
 
         @Test
@@ -72,7 +73,7 @@ public class RotateImage {
             int[][] matrix = {{1}};
             ri.rotate(matrix);
 
-            Assert.assertArrayEquals(expected, matrix);
+            assertArrayEquals(expected, matrix);
         }
 
         @Test
@@ -93,7 +94,7 @@ public class RotateImage {
             };
             ri.rotate(matrix);
 
-            Assert.assertArrayEquals(expected, matrix);
+            assertArrayEquals(expected, matrix);
         }
     }
 }

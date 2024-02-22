@@ -1,7 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;;import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class GameOfLife {
     private int[][] board;
@@ -68,7 +67,7 @@ public class GameOfLife {
                 {0,0,0},
             };
             gl.gameOfLife(actual);
-            Assert.assertArrayEquals(actual, expected);
+            assertArrayEquals(actual, expected);
         }
 
         @Test
@@ -82,7 +81,7 @@ public class GameOfLife {
                 {1,0},
             };
             gl.gameOfLife(actual);
-            Assert.assertArrayEquals(expected, actual);
+            assertArrayEquals(expected, actual);
         }
 
         @Test
@@ -104,7 +103,7 @@ public class GameOfLife {
                 {1,1,0,0,1,0,1,0,1,0,1,1,0,1,0,1,0,1,0,0},
             };
             gl.gameOfLife(actual);
-            Assert.assertArrayEquals(expected, actual);
+            assertArrayEquals(expected, actual);
         }
     }
 }

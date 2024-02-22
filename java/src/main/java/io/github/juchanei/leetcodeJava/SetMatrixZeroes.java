@@ -1,7 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class SetMatrixZeroes {
     private int[][] matrix;
@@ -50,7 +51,7 @@ public class SetMatrixZeroes {
             };
             smz.setZeroes(input);
 
-            Assert.assertArrayEquals(output, input);
+            assertArrayEquals(output, input);
         }
 
         @Test
@@ -67,7 +68,7 @@ public class SetMatrixZeroes {
             };
             smz.setZeroes(input);
 
-            Assert.assertArrayEquals(output, input);
+            assertArrayEquals(output, input);
         }
 
         @Test
@@ -80,7 +81,7 @@ public class SetMatrixZeroes {
             };
             smz.setZeroes(input);
 
-            Assert.assertArrayEquals(output, input);
+            assertArrayEquals(output, input);
         }
 
         @Test
@@ -93,7 +94,7 @@ public class SetMatrixZeroes {
             };
             smz.setZeroes(input);
 
-            Assert.assertArrayEquals(output, input);
+            assertArrayEquals(output, input);
         }
     }
 }
