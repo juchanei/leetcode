@@ -1,5 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -8,10 +9,8 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * Created by juchanei on 2020/11/14.
- * https://leetcode.com/problems/binary-tree-level-order-traversal/
- */
+// Created by juchanei on 2020/11/14.
+// https://leetcode.com/problems/binary-tree-level-order-traversal/
 public class BinaryTreeLevelOrderTraversal {
 
     public static class TreeNode {
@@ -33,7 +32,7 @@ public class BinaryTreeLevelOrderTraversal {
     private static final List<List<Integer>> ret = new LinkedList<>();
 
     private static List<List<Integer>> recursive(List<TreeNode> levelNodes) {
-        if (levelNodes.size() == 0) return ret;
+        if (levelNodes.isEmpty()) return ret;
 
         List<Integer> levelValues = levelNodes.stream()
             .map(node -> node.val)
@@ -53,7 +52,8 @@ public class BinaryTreeLevelOrderTraversal {
         return root == null ? ret : recursive(Collections.singletonList(root));
     }
 
-    public static class UnitTest {
+    @Nested
+    class UnitTest {
         @Test
         public void test1() {
             TreeNode root = new TreeNode(
@@ -67,9 +67,9 @@ public class BinaryTreeLevelOrderTraversal {
             );
 
             List<List<Integer>> expected = Arrays.asList(
-                Arrays.asList(3),
-                Arrays.asList(9, 20),
-                Arrays.asList(15, 7)
+                List.of(3),
+                List.of(9, 20),
+                List.of(15, 7)
             );
             assertEquals(expected, levelOrder(root));
         }

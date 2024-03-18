@@ -1,6 +1,9 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
@@ -27,15 +30,15 @@ public class SetMatrixZeroes {
 
         if (!isZero) return;
 
-        for (int i = 0; i < matrix[y].length; i++)
-            matrix[y][i] = 0;
+        Arrays.fill(matrix[y], 0);
 
         for (int i = 0; i < matrix.length; i++)
             matrix[i][x] = 0;
     }
 
-    public static class UnitTest {
-        private SetMatrixZeroes smz = new SetMatrixZeroes();
+    @Nested
+    class UnitTest {
+        private final SetMatrixZeroes sut = new SetMatrixZeroes();
 
         @Test
         public void example1() {
@@ -49,7 +52,7 @@ public class SetMatrixZeroes {
                 {0, 0, 0},
                 {1, 0, 1},
             };
-            smz.setZeroes(input);
+            sut.setZeroes(input);
 
             assertArrayEquals(output, input);
         }
@@ -66,7 +69,7 @@ public class SetMatrixZeroes {
                 {0, 4, 5, 0},
                 {0, 3, 1, 0},
             };
-            smz.setZeroes(input);
+            sut.setZeroes(input);
 
             assertArrayEquals(output, input);
         }
@@ -79,7 +82,7 @@ public class SetMatrixZeroes {
             int[][] output = {
                 {0},
             };
-            smz.setZeroes(input);
+            sut.setZeroes(input);
 
             assertArrayEquals(output, input);
         }
@@ -92,7 +95,7 @@ public class SetMatrixZeroes {
             int[][] output = {
                 {0, 0},
             };
-            smz.setZeroes(input);
+            sut.setZeroes(input);
 
             assertArrayEquals(output, input);
         }

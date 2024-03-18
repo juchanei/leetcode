@@ -1,5 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,14 +28,15 @@ public class UniquePaths {
         return cache[i][j] = find(i + 1, j) + find(i, j + 1);
     }
 
-    public static class UnitTest {
+    @Nested
+    class UnitTest {
 
-        private UniquePaths up = new UniquePaths();
+        private final UniquePaths sut = new UniquePaths();
 
         @Test
         public void example1() {
             int expected = 28;
-            int actual = up.uniquePaths(3, 7);
+            int actual = sut.uniquePaths(3, 7);
 
             assertEquals(expected, actual);
         }
@@ -42,7 +44,7 @@ public class UniquePaths {
         @Test
         public void example2() {
             int expected = 3;
-            int actual = up.uniquePaths(3, 2);
+            int actual = sut.uniquePaths(3, 2);
 
             assertEquals(expected, actual);
         }
@@ -50,7 +52,7 @@ public class UniquePaths {
         @Test
         public void example3() {
             int expected = 28;
-            int actual = up.uniquePaths(7, 3);
+            int actual = sut.uniquePaths(7, 3);
 
             assertEquals(expected, actual);
         }
@@ -58,7 +60,7 @@ public class UniquePaths {
         @Test
         public void example4() {
             int expected = 6;
-            int actual = up.uniquePaths(3, 3);
+            int actual = sut.uniquePaths(3, 3);
 
             assertEquals(expected, actual);
         }

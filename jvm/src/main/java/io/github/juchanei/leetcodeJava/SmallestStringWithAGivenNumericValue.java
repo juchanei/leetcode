@@ -1,9 +1,11 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SuppressWarnings("ALL")
 public class SmallestStringWithAGivenNumericValue {
 
     private static String find(int n, int k, int nA) {
@@ -23,7 +25,8 @@ public class SmallestStringWithAGivenNumericValue {
         return find(n, k, n);
     }
 
-    public static class UnitTest {
+    @Nested
+    class UnitTest {
         @Test
         public void givenTest1() {
             String actual = SmallestStringWithAGivenNumericValue.getSmallestString(3, 27);

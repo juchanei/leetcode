@@ -1,5 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -37,21 +38,22 @@ public class DailyTemperatures {
         return findDaysToWarmer(day + 1, temperature) + 1;
     }
 
-    public static class UnitTest {
-        private DailyTemperatures dt = new DailyTemperatures();
+    @Nested
+    class UnitTest {
+        private final DailyTemperatures sut = new DailyTemperatures();
 
         @Test
         public void example1() {
             int[] input = {73, 74, 75, 71, 69, 72, 76, 73};
             int[] expected = {1, 1, 4, 2, 1, 1, 0, 0};
-            assertArrayEquals(expected, dt.dailyTemperatures(input));
+            assertArrayEquals(expected, sut.dailyTemperatures(input));
         }
 
         @Test
         public void example2() {
             int[] input = {99, 30, 30, 30, 30, 100};
             int[] expected = {5, 4, 3, 2, 1, 0};
-            assertArrayEquals(expected, dt.dailyTemperatures(input));
+            assertArrayEquals(expected, sut.dailyTemperatures(input));
         }
     }
 }

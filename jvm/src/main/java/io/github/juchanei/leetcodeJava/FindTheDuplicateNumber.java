@@ -1,5 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -34,35 +35,36 @@ public class FindTheDuplicateNumber {
         return nums[current];
     }
 
-    public static class UnitTest {
-        private FindTheDuplicateNumber dn = new FindTheDuplicateNumber();
+    @Nested
+    class UnitTest {
+        private final FindTheDuplicateNumber sut = new FindTheDuplicateNumber();
 
         @Test
         public void example1() {
             int[] input = { 1,3,4,2,2 };
             int output = 2;
-            assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, sut.findDuplicate(input));
         }
 
         @Test
         public void example2() {
             int[] input = { 3,1,3,4,2 };
             int output = 3;
-            assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, sut.findDuplicate(input));
         }
 
         @Test
         public void example3() {
             int[] input = { 1,1 };
             int output = 1;
-            assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, sut.findDuplicate(input));
         }
 
         @Test
         public void example4() {
             int[] input = { 1,1,2 };
             int output = 1;
-            assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, sut.findDuplicate(input));
         }
 
         @Test
@@ -72,14 +74,14 @@ public class FindTheDuplicateNumber {
             for (int i = 0; i < 30000; i++) input[i] = i + 1;
             input[30000] = output;
 
-            assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, sut.findDuplicate(input));
         }
 
         @Test
         public void test2() {
             int[] input = { 2,2,2 };
             int output = 2;
-            assertEquals(output, dn.findDuplicate(input));
+            assertEquals(output, sut.findDuplicate(input));
         }
     }
 }

@@ -1,5 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -8,12 +9,10 @@ public class RotateImage {
     public void rotate(int[][] matrix) {
         int n = matrix.length;
 
-        for (int j = 0; j < n/2; j++) {
-            for (int i = j; i < n - 1 - j; i++) {
-                int a = j;
-                int b = i;
-                int c = n - 1 - j;
-                int d = n - 1 - i;
+        for (int a = 0; a < n/2; a++) {
+            for (int b = a; b < n - 1 - a; b++) {
+                int c = n - 1 - a;
+                int d = n - 1 - b;
 
                 int one   = matrix[a][b];
                 int two   = matrix[b][c];
@@ -28,8 +27,9 @@ public class RotateImage {
         }
     }
 
-    public static class UnitTest {
-        private RotateImage ri = new RotateImage();
+    @Nested
+    class UnitTest {
+        private final RotateImage sut = new RotateImage();
 
         @Test
         public void example1() {
@@ -43,7 +43,7 @@ public class RotateImage {
                 {4,5,6},
                 {7,8,9}
             };
-            ri.rotate(matrix);
+            sut.rotate(matrix);
 
             assertArrayEquals(expected, matrix);
         }
@@ -62,7 +62,7 @@ public class RotateImage {
                 {13,3, 6, 7 },
                 {15,14,12,16}
             };
-            ri.rotate(matrix);
+            sut.rotate(matrix);
 
             assertArrayEquals(expected, matrix);
         }
@@ -71,7 +71,7 @@ public class RotateImage {
         public void example3() {
             int[][] expected =  {{1}};
             int[][] matrix = {{1}};
-            ri.rotate(matrix);
+            sut.rotate(matrix);
 
             assertArrayEquals(expected, matrix);
         }
@@ -92,7 +92,7 @@ public class RotateImage {
                 {15,14,12,16,10},
                 {21,22,23,24,25}
             };
-            ri.rotate(matrix);
+            sut.rotate(matrix);
 
             assertArrayEquals(expected, matrix);
         }

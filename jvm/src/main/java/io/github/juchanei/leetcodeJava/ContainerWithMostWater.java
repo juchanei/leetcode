@@ -1,5 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,14 +45,15 @@ public class ContainerWithMostWater {
         return right;
     }
 
-    public static class UnitTest {
-        private ContainerWithMostWater cw = new ContainerWithMostWater();
+    @Nested
+    class UnitTest {
+        private final ContainerWithMostWater sut = new ContainerWithMostWater();
 
         @Test
         public void example1() {
             int[] input = {1,8,6,2,5,4,8,3,7};
             int expected = 49;
-            int actual = cw.maxArea(input);
+            int actual = sut.maxArea(input);
             assertEquals(expected, actual);
         }
 
@@ -59,7 +61,7 @@ public class ContainerWithMostWater {
         public void example2() {
             int[] input = {4,3,2,1,4};
             int expected = 16;
-            int actual = cw.maxArea(input);
+            int actual = sut.maxArea(input);
             assertEquals(expected, actual);
         }
 
@@ -67,7 +69,7 @@ public class ContainerWithMostWater {
         public void example3() {
             int[] input = {1,2,1};
             int expected = 2;
-            int actual = cw.maxArea(input);
+            int actual = sut.maxArea(input);
             assertEquals(expected, actual);
         }
 
@@ -75,7 +77,7 @@ public class ContainerWithMostWater {
         public void test1() {
             int[] input = {1,8,6,2,5,4,8,3,7,9,8,7,6,5,4,3,2,1};
             int expected = 72;
-            int actual = cw.maxArea(input);
+            int actual = sut.maxArea(input);
             assertEquals(expected, actual);
         }
     }

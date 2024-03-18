@@ -1,24 +1,28 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FindAllAnagramsInAString {
     public static List<Integer> findAnagrams(String s, String p) {
-        if (s.length() == 0) return Collections.EMPTY_LIST;
-        if (s.length() < p.length()) return Collections.EMPTY_LIST;
+        if (s.isEmpty()) return List.of();
+        if (s.length() < p.length()) return List.of();
 
         List<Boolean> results = IntStream.range(0, s.length() - p.length() + 1)
             .boxed()
             .map(createAnagramChecker(s, p))
-            .collect(Collectors.toList());
+            .toList();
 
         return IntStream.range(0, results.size())
             .boxed()
@@ -31,7 +35,7 @@ public class FindAllAnagramsInAString {
 
         Map<String, Integer> mapP = countAlphabets(p);
 
-        return new Function<Integer, Boolean>() {
+        return new Function<>() {
             private Boolean memoAndGet(int index, boolean res) {
                 memo.put(index, res);
                 return res;
@@ -59,13 +63,14 @@ public class FindAllAnagramsInAString {
         return map;
     }
 
-    public static class UnitTest {
+    @Nested
+    class UnitTest {
         @Test
         public void empty() {
-            List<Integer> expected = Arrays.asList();
+            List<Integer> expected = List.of();
             List<Integer> actual = findAnagrams("", "abc");
 
-            assertTrue(expected.equals(actual));
+            assertEquals(expected, actual);
         }
 
         @Test
@@ -73,7 +78,7 @@ public class FindAllAnagramsInAString {
             List<Integer> expected = Arrays.asList(0, 6);
             List<Integer> actual = findAnagrams("cbaebabacd", "abc");
 
-            assertTrue(expected.equals(actual));
+            assertEquals(expected, actual);
         }
 
         @Test
@@ -81,7 +86,7 @@ public class FindAllAnagramsInAString {
             List<Integer> expected = Arrays.asList(0, 2, 3, 4, 8);
             List<Integer> actual = findAnagrams("ababaabbabab", "aab");
 
-            assertTrue(expected.equals(actual));
+            assertEquals(expected, actual);
         }
 
         @Test
@@ -89,7 +94,7 @@ public class FindAllAnagramsInAString {
             List<Integer> expected = Arrays.asList(0, 1, 2, 3, 4);
             List<Integer> actual = findAnagrams("aaaaaaa", "aaa");
 
-            assertTrue(expected.equals(actual));
+            assertEquals(expected, actual);
         }
     }
 }

@@ -1,5 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,11 +10,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PalindromePartitioning {
     public List<List<String>> partition(String s) {
-        if (s.length() == 0) {
+        if (s.isEmpty()) {
             return List.of(List.of());
         }
 
@@ -28,7 +30,7 @@ public class PalindromePartitioning {
                 .map(strings -> Stream
                     .concat(Stream.of(candidate), strings.stream())
                     .collect(Collectors.toList()))
-                .forEach(strings -> ret.add(strings));
+                .forEach(ret::add);
         }
 
         return ret;
@@ -47,8 +49,9 @@ public class PalindromePartitioning {
     }
 
 
-    public static class UnitTest {
-        private PalindromePartitioning pp = new PalindromePartitioning();
+    @Nested
+    class UnitTest {
+        private final PalindromePartitioning sut = new PalindromePartitioning();
 
         @Test
         public void example1() {
@@ -60,43 +63,43 @@ public class PalindromePartitioning {
 
             assertArrayEquals(
                 output.toArray(),
-                pp.partition(input).toArray()
+                sut.partition(input).toArray()
             );
         }
 
         @Test
         public void example2() {
             String input = "a";
-            List<List<String>> output = Arrays.asList(
-                Arrays.asList("a")
+            List<List<String>> output = List.of(
+                List.of("a")
             );
 
             assertArrayEquals(
                 output.toArray(),
-                pp.partition(input).toArray()
+                sut.partition(input).toArray()
             );
         }
 
         @Test
         public void palindromeTest() {
-            assertEquals(true, pp.isPalindrome("heleh"));
-            assertEquals(true, pp.isPalindrome("h"));
-            assertEquals(true, pp.isPalindrome("hh"));
-            assertEquals(false, pp.isPalindrome("ddheleh"));
-            assertEquals(false, pp.isPalindrome(""));
+            assertTrue(sut.isPalindrome("heleh"));
+            assertTrue(sut.isPalindrome("h"));
+            assertTrue(sut.isPalindrome("hh"));
+            assertFalse(sut.isPalindrome("ddheleh"));
+            assertFalse(sut.isPalindrome(""));
         }
 
         @Test
         public void test1() {
             String input = "bb";
-            List<List<String>> output = Arrays.asList(
-                Arrays.asList("b", "b"),
-                Arrays.asList("bb")
+            List<List<String>> output = List.of(
+                List.of("b", "b"),
+                List.of("bb")
             );
 
             assertArrayEquals(
                 output.toArray(),
-                pp.partition(input).toArray()
+                sut.partition(input).toArray()
             );
         }
     }

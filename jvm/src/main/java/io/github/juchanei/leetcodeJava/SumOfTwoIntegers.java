@@ -1,8 +1,9 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SumOfTwoIntegers {
     public int getSum(int a, int b) {
@@ -30,15 +31,16 @@ public class SumOfTwoIntegers {
         return acc;
     }
 
-    public static class UnitTest {
-        private  SumOfTwoIntegers si = new SumOfTwoIntegers();
+    @Nested
+    class UnitTest {
+        private final SumOfTwoIntegers sut = new SumOfTwoIntegers();
 
         @Test
         public void example1() {
             int a = 1;
             int b = 2;
             int c = 3;
-            assertEquals(c, si.getSum(a, b));
+            assertEquals(c, sut.getSum(a, b));
         }
 
         @Test
@@ -46,7 +48,7 @@ public class SumOfTwoIntegers {
             int a = 2;
             int b = 3;
             int c = 5;
-            assertEquals(c, si.getSum(a, b));
+            assertEquals(c, sut.getSum(a, b));
         }
 
         @Test
@@ -54,7 +56,7 @@ public class SumOfTwoIntegers {
             int a = -12;
             int b = 3;
             int c = -9;
-            assertEquals(c, si.getSum(a, b));
+            assertEquals(c, sut.getSum(a, b));
         }
 
         @Test
@@ -62,7 +64,7 @@ public class SumOfTwoIntegers {
             int a = 20;
             int b = 30;
             int c = 50;
-            assertEquals(c, si.getSum(a, b));
+            assertEquals(c, sut.getSum(a, b));
         }
     }
 }

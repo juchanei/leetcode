@@ -1,5 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -26,14 +27,15 @@ public class ProductOfArrayExceptSelf {
         return ret;
     }
 
-    public static class UnitTest {
-        private ProductOfArrayExceptSelf poes = new ProductOfArrayExceptSelf();
+    @Nested
+    class UnitTest {
+        private final ProductOfArrayExceptSelf sut = new ProductOfArrayExceptSelf();
 
         @Test()
         public void example1() {
             int[] input = { 1, 2, 3, 4 };
             int[] output = { 24, 12, 8, 6 };
-            assertArrayEquals(output, poes.productExceptSelf(input));
+            assertArrayEquals(output, sut.productExceptSelf(input));
         }
     }
 }

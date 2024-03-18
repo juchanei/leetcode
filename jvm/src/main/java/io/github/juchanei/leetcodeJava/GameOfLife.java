@@ -1,6 +1,8 @@
 package io.github.juchanei.leetcodeJava;
 
-import org.junit.jupiter.api.Test;;import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class GameOfLife {
     private int[][] board;
@@ -39,18 +41,15 @@ public class GameOfLife {
         }
 
         if (0 < (this.board[y][x] & 1)) {
-            if (neighborhood < 2) return false;
-            if (3 < neighborhood) return false;
-            return true;
-        }
-        else {
-            if (neighborhood == 3) return true;
-            return false;
+            return neighborhood == 2 || neighborhood == 3;
+        } else {
+            return neighborhood == 3;
         }
     }
 
-    public static class UnitTest {
-        private GameOfLife gl = new GameOfLife();
+    @Nested
+    class UnitTest {
+        private final GameOfLife sut = new GameOfLife();
 
         @Test
         public void example1() {
@@ -66,7 +65,7 @@ public class GameOfLife {
                 {1,1,1},
                 {0,0,0},
             };
-            gl.gameOfLife(actual);
+            sut.gameOfLife(actual);
             assertArrayEquals(actual, expected);
         }
 
@@ -80,7 +79,7 @@ public class GameOfLife {
                 {1,1},
                 {1,0},
             };
-            gl.gameOfLife(actual);
+            sut.gameOfLife(actual);
             assertArrayEquals(expected, actual);
         }
 
@@ -102,7 +101,7 @@ public class GameOfLife {
                 {1,1,0,0,1,0,1,0,1,0,1,1,0,1,0,1,0,1,0,0},
                 {1,1,0,0,1,0,1,0,1,0,1,1,0,1,0,1,0,1,0,0},
             };
-            gl.gameOfLife(actual);
+            sut.gameOfLife(actual);
             assertArrayEquals(expected, actual);
         }
     }

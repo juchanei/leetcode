@@ -1,5 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,7 +16,7 @@ public class CountAndSay {
     }
 
     private String countAndSay(String string) {
-        if (string.length() == 0) return "";
+        if (string.isEmpty()) return "";
 
         StringBuilder result = new StringBuilder();
         char prev = string.charAt(0);
@@ -36,15 +37,16 @@ public class CountAndSay {
         return result.toString();
     }
 
-    public static class UnitTest {
-        private CountAndSay cs = new CountAndSay();
+    @Nested
+    class UnitTest {
+        private final CountAndSay sut = new CountAndSay();
 
         @Test
         public void example1() {
             int input = 1;
             String output = "1";
 
-            assertEquals(output, cs.countAndSay(input));
+            assertEquals(output, sut.countAndSay(input));
         }
 
         @Test
@@ -52,7 +54,7 @@ public class CountAndSay {
             int input = 4;
             String output = "1211";
 
-            assertEquals(output, cs.countAndSay(input));
+            assertEquals(output, sut.countAndSay(input));
         }
     }
 }

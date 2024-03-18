@@ -1,5 +1,6 @@
 package io.github.juchanei.leetcodeJava;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,21 +37,19 @@ public class IncreasingTripletSubsequence {
             if (find(index + 1, nums[index], nIncSub + 1))
                 return true;
 
-        if (find(index + 1, prev, nIncSub))
-            return true;
-
-        return false;
+        return find(index + 1, prev, nIncSub);
     }
 
-    public static class UnitTest {
-        private IncreasingTripletSubsequence its = new IncreasingTripletSubsequence();
+    @Nested
+    class UnitTest {
+        private final IncreasingTripletSubsequence sut = new IncreasingTripletSubsequence();
 
         @Test
         public void example1() {
             int[] input = { 1,2,3,4,5 };
             boolean output = true;
 
-            assertEquals(output, its.increasingTriplet(input));
+            assertEquals(output, sut.increasingTriplet(input));
         }
 
         @Test
@@ -58,7 +57,7 @@ public class IncreasingTripletSubsequence {
             int[] input = { 5,4,3,2,1 };
             boolean output = false;
 
-            assertEquals(output, its.increasingTriplet(input));
+            assertEquals(output, sut.increasingTriplet(input));
         }
 
         @Test
@@ -66,7 +65,7 @@ public class IncreasingTripletSubsequence {
             int[] input = { 2,1,5,0,4,6 };
             boolean output = true;
 
-            assertEquals(output, its.increasingTriplet(input));
+            assertEquals(output, sut.increasingTriplet(input));
         }
 
         @Test
@@ -74,7 +73,7 @@ public class IncreasingTripletSubsequence {
             int[] input = { 20,100,10,12,5,13 };
             boolean output = true;
 
-            assertEquals(output, its.increasingTriplet(input));
+            assertEquals(output, sut.increasingTriplet(input));
         }
 
         @Test
@@ -82,7 +81,7 @@ public class IncreasingTripletSubsequence {
             int[] input = { 1,5,0,4,1,3 };
             boolean output = true;
 
-            assertEquals(output, its.increasingTriplet(input));
+            assertEquals(output, sut.increasingTriplet(input));
         }
     }
 }
