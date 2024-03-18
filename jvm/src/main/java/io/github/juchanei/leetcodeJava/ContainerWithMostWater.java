@@ -51,7 +51,7 @@ public class ContainerWithMostWater {
 
         @Test
         public void example1() {
-            int[] input = {1,8,6,2,5,4,8,3,7};
+            int[] input = {1, 8, 6, 2, 5, 4, 8, 3, 7};
             int expected = 49;
             int actual = sut.maxArea(input);
             assertEquals(expected, actual);
@@ -59,7 +59,7 @@ public class ContainerWithMostWater {
 
         @Test
         public void example2() {
-            int[] input = {4,3,2,1,4};
+            int[] input = {4, 3, 2, 1, 4};
             int expected = 16;
             int actual = sut.maxArea(input);
             assertEquals(expected, actual);
@@ -67,7 +67,7 @@ public class ContainerWithMostWater {
 
         @Test
         public void example3() {
-            int[] input = {1,2,1};
+            int[] input = {1, 2, 1};
             int expected = 2;
             int actual = sut.maxArea(input);
             assertEquals(expected, actual);
@@ -75,7 +75,7 @@ public class ContainerWithMostWater {
 
         @Test
         public void test1() {
-            int[] input = {1,8,6,2,5,4,8,3,7,9,8,7,6,5,4,3,2,1};
+            int[] input = {1, 8, 6, 2, 5, 4, 8, 3, 7, 9, 8, 7, 6, 5, 4, 3, 2, 1};
             int expected = 72;
             int actual = sut.maxArea(input);
             assertEquals(expected, actual);
