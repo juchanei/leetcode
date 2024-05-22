@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test
 
 // https://leetcode.com/explore/interview/card/top-interview-questions-easy/93/linked-list/771/
 class MergeTwoSortedLists {
-    data class ListNode(val `val`: Int, val next: ListNode?)
-
     fun mergeTwoLists(list1: ListNode?, list2: ListNode?): ListNode? =
         mergeTwoLists(list1, list2, null)?.reversed()
 
@@ -22,15 +20,6 @@ class MergeTwoSortedLists {
         } else {
             val value = list1?.`val` ?: list2?.`val` as Int
             mergeTwoLists(list1?.next, list2?.next, ListNode(value, acc))
-        }
-
-    private fun ListNode.reversed(): ListNode = reverse(this)
-
-    private tailrec fun reverse(head: ListNode, acc: ListNode? = null): ListNode =
-        if (head.next == null) {
-            ListNode(head.`val`, acc)
-        } else {
-            reverse(head.next, ListNode(head.`val`, acc))
         }
 
     @Test
@@ -75,22 +64,5 @@ class MergeTwoSortedLists {
         val actual = mergeTwoLists(l1.toListNode(), l2.toListNode())
 
         then(actual.toList()).isEqualTo(expected)
-    }
-    private fun List<Int>.toListNode(): ListNode? {
-        if (isEmpty()) return null
-        return ListNode(first(), drop(1).toListNode())
-    }
-
-    private fun ListNode?.toList(): List<Int> {
-        val result = mutableListOf<Int>()
-
-        var node: ListNode? = this
-        while (true) {
-            if (node == null) break
-            result.add(node.`val`)
-            node = node.next
-        }
-
-        return result
     }
 }

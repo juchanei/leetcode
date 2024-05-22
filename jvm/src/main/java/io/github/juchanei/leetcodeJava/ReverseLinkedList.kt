@@ -5,20 +5,7 @@ import org.junit.jupiter.api.Test
 
 // https://leetcode.com/explore/interview/card/top-interview-questions-easy/93/linked-list/560/
 class ReverseLinkedList {
-    data class ListNode(val `val`: Int, val next: ListNode?)
-
-    fun reverseList(head: ListNode?): ListNode? =
-        reverseList(head = head, acc = null)
-
-    private tailrec fun reverseList(head: ListNode?, acc: ListNode?): ListNode? =
-        if (head == null) {
-            acc
-        } else {
-            reverseList(
-                head = head.next,
-                acc = ListNode(head.`val`, acc)
-            )
-        }
+    fun reverseList(head: ListNode?): ListNode? = head?.reversed()
 
     @Test
     fun example1() {
@@ -54,23 +41,5 @@ class ReverseLinkedList {
         val actual = reverseList(l.toListNode())
 
         then(actual.toList()).isEqualTo(l.reversed())
-    }
-
-    private fun List<Int>.toListNode(): ListNode? {
-        if (isEmpty()) return null
-        return ListNode(first(), drop(1).toListNode())
-    }
-
-    private fun ListNode?.toList(): List<Int> {
-        val result = mutableListOf<Int>()
-
-        var node: ListNode? = this
-        while (true) {
-            if (node == null) break
-            result.add(node.`val`)
-            node = node.next
-        }
-
-        return result
     }
 }

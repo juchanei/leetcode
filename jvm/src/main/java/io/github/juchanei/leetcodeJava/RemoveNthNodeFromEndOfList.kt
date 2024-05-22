@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test
 
 // https://leetcode.com/explore/interview/card/top-interview-questions-easy/93/linked-list/603/
 class RemoveNthNodeFromEndOfList {
-    class ListNode(var `val`: Int, var next: ListNode? = null)
-
     fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
         if (head == null) return null
 
@@ -74,23 +72,5 @@ class RemoveNthNodeFromEndOfList {
         val actual = removeNthFromEnd(head, n)
 
         then(actual.toList()).isEqualTo(listOf(2))
-    }
-
-    private fun List<Int>.toListNode(): ListNode? {
-        if (isEmpty()) return null
-        return ListNode(first(), drop(1).toListNode())
-    }
-
-    private fun ListNode?.toList(): List<Int> {
-        val result = mutableListOf<Int>()
-
-        var node: ListNode? = this
-        while (true) {
-            if (node == null) break
-            result.add(node.`val`)
-            node = node.next
-        }
-
-        return result
     }
 }
