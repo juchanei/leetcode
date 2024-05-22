@@ -1,4 +1,4 @@
-package io.github.juchanei.leetcodeJava
+package io.github.juchanei.leetcodeKotlin
 
 class DeleteNodeInALinkedList {
     class ListNode(var `val`: Int) {

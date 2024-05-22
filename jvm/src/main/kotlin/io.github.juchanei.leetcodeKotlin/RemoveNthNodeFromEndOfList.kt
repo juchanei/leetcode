@@ -1,4 +1,4 @@
-package io.github.juchanei.leetcodeJava
+package io.github.juchanei.leetcodeKotlin
 
 import org.assertj.core.api.BDDAssertions.then
 import org.junit.jupiter.api.Test

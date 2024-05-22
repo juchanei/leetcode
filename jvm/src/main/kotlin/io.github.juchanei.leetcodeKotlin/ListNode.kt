@@ -1,4 +1,4 @@
-package io.github.juchanei.leetcodeJava
+package io.github.juchanei.leetcodeKotlin
 
 data class ListNode(val `val`: Int, var next: ListNode?)
 
