@@ -1,9 +1,21 @@
 package io.github.juchanei.leetcodeKotlin
 
-data class ListNode(val `val`: Int, var next: ListNode?)
+data class ListNode(val `val`: Int, var next: ListNode?) {
+    override fun equals(other: Any?): Boolean = equals(this, other as? ListNode)
+}
 
-fun List<Int>.toListNode(): ListNode? =
-    if (isEmpty()) null else ListNode(first(), drop(1).toListNode())
+fun List<Int>.toListNode(): ListNode? {
+    val head = ListNode(0, null)
+
+    var temp = head
+    forEach {
+        val next = ListNode(it, null)
+        temp.next = next
+        temp = next
+    }
+
+    return head.next
+}
 
 fun ListNode?.toList(): List<Int> {
     val result = mutableListOf<Int>()
@@ -26,3 +38,10 @@ tailrec fun reverse(head: ListNode, acc: ListNode? = null): ListNode =
     } else {
         reverse(head.next as ListNode, ListNode(head.`val`, acc))
     }
+
+tailrec fun equals(a: ListNode?, b: ListNode?, acc: Boolean = true): Boolean {
+    if (a == null && b == null) return acc
+    if (a == null) return false
+    if (b == null) return false
+    return equals(a.next, b.next, acc && a.`val` == b.`val`)
+}
